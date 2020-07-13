@@ -1,20 +1,67 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
+<ion-header class="ion-no-border">
+  <ion-toolbar color="primary">
+    <ion-title class="ion-text-center">
+
+      <img src="/assets/logo.png">
+      <span>Silas Sena</span>
+      <ion-button color="light" fill="clear" size="small">
+        <ion-icon slot="icon-only" name="arrow-down-outline"></ion-icon>
+      </ion-button>      
+
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="ion-padding" color="primary">
+  <div class="background">
+    <div class="bank-information ion-text-center">
+        
+      <img class="qrcode" src="/assets/qr-code.png">
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+      <span>Banco <strong>000-Nu Pagamentos S.A</strong> </span>
+      <span>Agência <strong>0000</strong> </span>
+      <span>Conta <strong>00000000-0</strong> </span>
+    </div>
+    <ion-list lines="full">
+      <ion-item *ngFor="let item of itens" detail>
+        <ion-icon slot="start" [name]="item.icon"></ion-icon>
+        <ion-label>{{item.text}}</ion-label>
+      </ion-item>
+    </ion-list>
+    <ion-button class="logout" color="light" expand="block" fill="outline">
+      SAIR DA CONTA
+    </ion-button>
+  </div>  
+
+  <div class="blocks">
+    <ion-card>
+      <ion-item class="ion-margin-vertical" lines="none">
+        <ion-icon slot="start" name="card-outline"></ion-icon>
+        <ion-label>Cartão de credito</ion-label>
+      </ion-item>
+      <ion-card-content>
+        <div class="cash">
+          <span>Fatura atual</span>
+          <span>R$ 57,55</span>
+          <span>Limite disponivel R$ 2942,45</span> 
+        </div>
+      </ion-card-content>
+    </ion-card>
   </div>
+
 </ion-content>
+
+<ion-footer class="ion-no-border">
+  <ion-toolbar color="primary">
+    <ion-slides [options]="slidesOptions">
+      <ion-slide *ngFor="let option of options">
+        <div class="container ion-text-left">
+
+          <ion-icon [name]="option.icon"></ion-icon>
+          <span>{{ option.text}}</span>
+
+        </div>
+      </ion-slide>
+    </ion-slides>
+  </ion-toolbar>
+</ion-footer>
